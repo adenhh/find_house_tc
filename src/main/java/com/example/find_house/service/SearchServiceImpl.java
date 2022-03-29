@@ -24,7 +24,7 @@ public class SearchServiceImpl implements SearchService {
     @Autowired
     private HouseRepository houseRepository;
 
-    private void createOrUpdateIndex(HouseIndexMessage message) throws IOException {
+    public void createOrUpdateIndex(HouseIndexMessage message) throws IOException {
         Long houseId = message.getHouseId();
         // id 反查
         House house = houseRepository.findOne(houseId);
@@ -46,4 +46,6 @@ public class SearchServiceImpl implements SearchService {
         // 错误处理逻辑
 
     }
+
+    public void remove(Long houseId) {}
 }
