@@ -1,10 +1,14 @@
 package com.example.find_house.repository;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+
+
 import com.example.find_house.entity.House;
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 
-public interface HouseRepository extends PagingAndSortingRepository<House, Long>, JpaSpecificationExecutor<House> {
+public interface HouseRepository extends JpaRepository<House, Long> {
 
-    House findOne(Long houseId);
+    Page<House> findAll(Pageable pageable);
+
 }

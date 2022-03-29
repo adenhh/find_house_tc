@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 // @ResponseBody和@Controller的合集
 @RestController
+//@EnableJpaRepositories(basePackages = "com.example.find_house.repository")
 public class FindHouseApplication {
 
     public static void main(String[] args) {

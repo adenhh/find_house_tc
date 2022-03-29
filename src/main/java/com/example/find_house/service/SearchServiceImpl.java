@@ -25,25 +25,25 @@ public class SearchServiceImpl implements SearchService {
     private HouseRepository houseRepository;
 
     public void createOrUpdateIndex(HouseIndexMessage message) throws IOException {
-        Long houseId = message.getHouseId();
-        // id 反查
-        House house = houseRepository.findOne(houseId);
-        if (house == null) {
-
-            return;
-        }
-
-        HouseIndexTemplate indexTemplate = new HouseIndexTemplate();
-        modelMapper.map(house, indexTemplate);
-        // json 序列化
-        ObjectMapper mapper = new ObjectMapper();
-        String houseDoc = mapper.writeValueAsString(indexTemplate);
-        Request indexRequest = new Request("PUT", "/house-index-1/_doc");
-
-        indexRequest.setJsonEntity(houseDoc);
-
-        Response response = esCli.performRequest(indexRequest);
-        // 错误处理逻辑
+//        Long houseId = message.getHouseId();
+//        // id 反查
+////        House house = houseRepository.findOne(houseId);
+////        if (house == null) {
+////
+////            return;
+////        }
+//
+//        HouseIndexTemplate indexTemplate = new HouseIndexTemplate();
+//        modelMapper.map(house, indexTemplate);
+//        // json 序列化
+//        ObjectMapper mapper = new ObjectMapper();
+//        String houseDoc = mapper.writeValueAsString(indexTemplate);
+//        Request indexRequest = new Request("PUT", "/house-index-1/_doc");
+//
+//        indexRequest.setJsonEntity(houseDoc);
+//
+//        Response response = esCli.performRequest(indexRequest);
+//        // 错误处理逻辑
 
     }
 
